@@ -1,7 +1,10 @@
+"use client"
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Gem, Mail, MapPin, Phone, ShieldCheck, Users, AlertTriangle } from "lucide-react";
+import { Gem, Mail, MapPin, Phone, ShieldCheck, Users, AlertTriangle, Menu, X } from "lucide-react";
 import Logo from "@/components/logo";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -35,11 +38,50 @@ const values = [
 ];
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground font-body">
-      <header className="py-6 px-4 md:px-8 bg-card shadow-sm">
-        <div className="container mx-auto flex items-center">
+      <header className="sticky top-0 z-50 py-4 px-4 md:px-8 bg-card shadow-md">
+        <div className="container mx-auto flex items-center justify-between">
           <Logo className="h-12 w-auto" />
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle className="flex items-center justify-between">
+                  Menu
+                  <SheetClose asChild>
+                     <Button variant="ghost" size="icon">
+                        <X className="h-6 w-6" />
+                        <span className="sr-only">Close menu</span>
+                      </Button>
+                  </SheetClose>
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="mt-8 flex flex-col gap-4">
+                <Button variant="link" className="justify-start text-lg" onClick={() => scrollToSection('values')}>
+                  Our Core Values
+                </Button>
+                <Button variant="link" className="justify-start text-lg" onClick={() => scrollToSection('contact')}>
+                  Contact Us
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </header>
 
@@ -62,7 +104,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="values" className="mb-12 md:mb-16">
+        <section id="values" className="mb-12 md:mb-16 pt-16 -mt-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
             Our Core Values
           </h2>
@@ -83,7 +125,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" className="pt-16 -mt-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
             Contact Us
           </h2>
@@ -108,7 +150,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-accent/90 to-accent flex flex-col items-center justify-center text-center p-8 md:p-12 text-accent-foreground">
+            <Card className="hidden lg:flex bg-gradient-to-br from-accent/90 to-accent flex-col items-center justify-center text-center p-8 md:p-12 text-accent-foreground">
               <h3 className="text-2xl font-bold mb-4 font-headline">Need Help Instantly?</h3>
               <p className="mb-6 max-w-sm">
                 Click the button below to start a conversation with our support team directly on WhatsApp.
@@ -132,6 +174,16 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+       <a
+        href="https://wa.me/1234567890"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-colors z-50 flex items-center justify-center scale-100 hover:scale-110 ease-in-out duration-300"
+      >
+        <WhatsAppIcon />
+      </a>
 
       <footer className="bg-card py-4 mt-12">
         <div className="container mx-auto text-center text-muted-foreground text-sm">
