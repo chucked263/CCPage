@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Truck, Search, Handshake, Menu, X, ShieldCheck, Scale, Wrench } from "lucide-react";
+import { Truck, Search, Handshake, Menu, X, ShieldCheck, Scale, Wrench, CheckCircle } from "lucide-react";
 import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import Link from 'next/link';
@@ -48,6 +48,30 @@ const values = [
   }
 ];
 
+const partnershipBenefits = [
+  {
+    icon: CheckCircle,
+    title: "Eliminate Supplier Headaches",
+    description: "We provide the consistency and reliability you can't get from inconsistent suppliers."
+  },
+  {
+    icon: CheckCircle,
+    title: "Focus On Your Core Work",
+    description: "Let us handle the procurement. Our delivery service means you spend less time searching and more time working."
+  },
+  {
+    icon: CheckCircle,
+    title: "Quality You Can Trust",
+    description: "We stand behind the quality of our products, ensuring you have the right tools for the job."
+  },
+  {
+    icon: CheckCircle,
+    title: "A True Technical Partner",
+    description: "We are invested in your success and dedicated to keeping your operations running smoothly."
+  }
+];
+
+
 export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -91,14 +115,25 @@ export default function AboutPage() {
         </header>
 
         <main className="flex-grow container mx-auto px-4 py-8 md:py-12 animate-in fade-in duration-500">
-            <section id="about-us" className="mb-12 md:mb-16">
-                <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">
-                    About Us
+            <section id="intro" className="text-center mb-12 md:mb-16">
+                 <h1 className="text-4xl md:text-5xl font-bold text-center mb-2 font-headline">
+                    Components Centre
                 </h1>
-                 <p className="text-xl text-center text-muted-foreground mb-12">
-                    What We Do: A Complete Supply Solution
+                <p className="text-xl md:text-2xl text-muted-foreground font-semibold">
+                    Your Workshop's Reliability Partner
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            </section>
+            
+            <section id="what-we-do" className="mb-12 md:mb-16">
+                <div className="max-w-4xl mx-auto text-center">
+                    <p className="text-lg text-muted-foreground mb-12">
+                        For any workshop or technical operation, the biggest threat to productivity is an inconsistent supply chain. At Components Centre, we solve this problem. We are not just another supplier; we are your proactive reliability partner, built on a foundation of hands-on engineering expertise. Our core mission is to ensure you never have to face the headache of a project delay because a critical part is out of stock or a trusted supplier has disappeared. We provide a consistent, dependable supply of the quality equipment, tools, and consumables that keep your operations and workshop running, delivered right to your door.
+                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-headline">
+                        What We Do: A Complete Supply Solution
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                     {aboutSections.map((section) => (
                     <Card key={section.title} className="text-center hover:shadow-lg transition-shadow flex flex-col">
                         <CardHeader className="items-center">
@@ -115,7 +150,28 @@ export default function AboutPage() {
                 </div>
             </section>
             
-            <section id="values" className="mb-12 md:mb-16 pt-16 -mt-16">
+            <section id="why-partner" className="mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
+                Why Partner With Us?
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {partnershipBenefits.map((benefit) => (
+                  <Card key={benefit.title} className="hover:shadow-lg transition-shadow flex flex-col">
+                    <CardHeader>
+                      <div className="flex items-center gap-4">
+                        <benefit.icon className="h-8 w-8 text-primary flex-shrink-0" />
+                        <CardTitle className="font-headline text-xl">{benefit.title}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground">{benefit.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
+            <section id="values" className="pt-8">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
                 Our Core Values
               </h2>
@@ -145,3 +201,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+    
