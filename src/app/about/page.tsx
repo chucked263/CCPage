@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Truck, Search, Handshake, Menu, X } from "lucide-react";
+import { Truck, Search, Handshake, Menu, X, ShieldCheck, Scale, Wrench } from "lucide-react";
 import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import Link from 'next/link';
@@ -24,6 +24,29 @@ const aboutSections = [
         description: "We deliver directly to your workshop or establishment, saving you valuable time and allowing you to focus on your core work."
     }
 ]
+
+const values = [
+  {
+    icon: ShieldCheck,
+    title: "Reliability",
+    description: "Our promise is consistency. You can depend on us for quality products and dependable service, every time.",
+  },
+  {
+    icon: Handshake,
+    title: "Partnership",
+    description: "We work with you to understand your needs, anticipate your requirements, and act as a seamless extension of your own operation.",
+  },
+  {
+    icon: Scale,
+    title: "Honesty",
+    description: "Complete transparency in our products, pricing, and technical advice.",
+  },
+  {
+    icon: Wrench,
+    title: "Technical Competence",
+    description: "Our engineering background ensures we understand the critical nature of what you do and can provide credible, expert support.",
+  }
+];
 
 export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,9 +81,6 @@ export default function AboutPage() {
                     <Button variant="link" asChild className="justify-start text-lg">
                         <Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
                     </Button>
-                    <Button variant="link" asChild className="justify-start text-lg">
-                        <Link href="/#values" onClick={() => setIsMenuOpen(false)}>Our Core Values</Link>
-                    </Button>
                      <Button variant="link" asChild className="justify-start text-lg">
                         <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
                     </Button>
@@ -71,7 +91,7 @@ export default function AboutPage() {
         </header>
 
         <main className="flex-grow container mx-auto px-4 py-8 md:py-12 animate-in fade-in duration-500">
-            <section id="about-us">
+            <section id="about-us" className="mb-12 md:mb-16">
                 <h1 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">
                     About Us
                 </h1>
@@ -93,6 +113,27 @@ export default function AboutPage() {
                     </Card>
                     ))}
                 </div>
+            </section>
+            
+            <section id="values" className="mb-12 md:mb-16 pt-16 -mt-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
+                Our Core Values
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {values.map((value) => (
+                  <Card key={value.title} className="text-center hover:shadow-lg transition-shadow flex flex-col">
+                    <CardHeader className="items-center">
+                      <div className="p-4 bg-primary/10 rounded-full mb-4">
+                        <value.icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <CardTitle className="font-headline">{value.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground">{value.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </section>
         </main>
 
