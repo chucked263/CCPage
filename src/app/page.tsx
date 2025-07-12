@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, MapPin, Phone, AlertTriangle, Menu, X, Info } from "lucide-react";
-import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -37,7 +37,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 py-4 px-4 md:px-8 bg-card shadow-md">
         <div className="container mx-auto flex items-center justify-between">
          <Link href="/" aria-label="Back to Home">
-            <Logo className="h-12 w-auto" />
+            <Image src="/CC logo.jpg" alt="Components Centre Logo" width={180} height={40} className="h-10 w-auto" priority />
           </Link>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -49,7 +49,7 @@ export default function Home() {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle className="flex items-center justify-between">
-                  Menu
+                  Contents
                   <SheetClose asChild>
                      <Button variant="ghost" size="icon">
                         <X className="h-6 w-6" />
@@ -86,8 +86,8 @@ export default function Home() {
             <div>
               <p className="font-bold">Website Under Maintenance</p>
               <p className="text-sm">
-                Our website is currently undergoing scheduled maintenance. We
-                should be back shortly. Thank you for your patience.
+                Our website is currently undergoing maintenance. We
+                will be back after upgrades are complete. Thank you.
               </p>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Home() {
               <CardContent className="flex-grow space-y-6 text-lg">
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>+263776733222</span>
+                  <span>+263 776 733 222</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary flex-shrink-0" />
@@ -145,7 +145,7 @@ export default function Home() {
         <section id="about-us-cta" className="text-center py-12 md:py-16">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 font-headline">Curious to learn more about us?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover our story, our mission, and the core values that drive us to be your most reliable partner.
+            Discover what drives us to be your most reliable partner.
           </p>
           <Button asChild size="lg">
             <Link href="/about">
