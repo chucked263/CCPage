@@ -103,6 +103,9 @@ export default function AboutPage() {
                 </SheetHeader>
                 <nav className="mt-8 flex flex-col gap-4">
                     <Button variant="link" asChild className="justify-start text-lg">
+                        <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+                    </Button>
+                    <Button variant="link" asChild className="justify-start text-lg">
                         <Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
                     </Button>
                      <Button variant="link" asChild className="justify-start text-lg">

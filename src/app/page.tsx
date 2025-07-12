@@ -36,7 +36,9 @@ export default function Home() {
     <div className="flex flex-col min-h-dvh bg-background text-foreground font-body">
       <header className="sticky top-0 z-50 py-4 px-4 md:px-8 bg-card shadow-md">
         <div className="container mx-auto flex items-center justify-between">
-          <Logo className="h-12 w-auto" />
+         <Link href="/" aria-label="Back to Home">
+            <Logo className="h-12 w-auto" />
+          </Link>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -57,6 +59,9 @@ export default function Home() {
                 </SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-4">
+                <Button variant="link" asChild className="justify-start text-lg">
+                  <Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+                </Button>
                 <Button variant="link" asChild className="justify-start text-lg">
                   <Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
                 </Button>
@@ -149,8 +154,9 @@ export default function Home() {
       </a>
 
       <footer className="bg-card py-4 mt-12">
-        <div className="container mx-auto text-center text-muted-foreground text-sm">
+        <div className="container mx-auto text-center text-muted-foreground text-sm flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
           <p>&copy; {new Date().getFullYear()} Components Centre. All Rights Reserved.</p>
+          <Link href="/about" className="hover:underline">About Us</Link>
         </div>
       </footer>
     </div>
