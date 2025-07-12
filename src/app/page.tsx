@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, MapPin, Phone, AlertTriangle, Menu, X } from "lucide-react";
+import { Mail, MapPin, Phone, AlertTriangle, Menu, X, Info } from "lucide-react";
 import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import Link from 'next/link';
@@ -141,6 +141,19 @@ export default function Home() {
             </Card>
           </div>
         </section>
+
+        <section id="about-us-cta" className="text-center py-12 md:py-16">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 font-headline">Curious to learn more about us?</h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Discover our story, our mission, and the core values that drive us to be your most reliable partner.
+          </p>
+          <Button asChild size="lg">
+            <Link href="/about">
+              <Info className="mr-2 h-5 w-5" />
+              About Us
+            </Link>
+          </Button>
+        </section>
       </main>
 
        <a
@@ -153,10 +166,9 @@ export default function Home() {
         <WhatsAppIcon />
       </a>
 
-      <footer className="bg-card py-4 mt-12">
-        <div className="container mx-auto text-center text-muted-foreground text-sm flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4">
+      <footer className="bg-card py-4 mt-auto">
+        <div className="container mx-auto text-center text-muted-foreground text-sm">
           <p>&copy; {new Date().getFullYear()} Components Centre. All Rights Reserved.</p>
-          <Link href="/about" className="hover:underline">About Us</Link>
         </div>
       </footer>
     </div>
