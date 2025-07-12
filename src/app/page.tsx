@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Gem, Mail, MapPin, Phone, ShieldCheck, Users, AlertTriangle, Menu, X } from "lucide-react";
+import { Handshake, Mail, MapPin, Phone, ShieldCheck, Users, AlertTriangle, Menu, X, Wrench, Scale } from "lucide-react";
 import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import Link from 'next/link';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -21,20 +22,25 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const values = [
   {
-    icon: Gem,
-    title: "Quality First",
-    description: "We are committed to providing components of the highest quality, ensuring performance and durability.",
-  },
-  {
     icon: ShieldCheck,
     title: "Reliability",
-    description: "Our products and services are dependable, meeting the standards our customers expect.",
+    description: "Our promise is consistency. You can depend on us for quality products and dependable service, every time.",
   },
   {
-    icon: Users,
-    title: "Customer Focus",
-    description: "We build strong relationships by understanding and responding to our customer's needs.",
+    icon: Handshake,
+    title: "Partnership",
+    description: "We work with you to understand your needs, anticipate your requirements, and act as a seamless extension of your own operation.",
   },
+  {
+    icon: Scale,
+    title: "Honesty",
+    description: "Complete transparency in our products, pricing, and technical advice.",
+  },
+  {
+    icon: Wrench,
+    title: "Technical Competence",
+    description: "Our engineering background ensures we understand the critical nature of what you do and can provide credible, expert support.",
+  }
 ];
 
 export default function Home() {
@@ -73,6 +79,9 @@ export default function Home() {
                 </SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-4">
+                <Button variant="link" asChild className="justify-start text-lg">
+                  <Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link>
+                </Button>
                 <Button variant="link" className="justify-start text-lg" onClick={() => scrollToSection('values')}>
                   Our Core Values
                 </Button>
@@ -108,16 +117,16 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 font-headline">
             Our Core Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
-              <Card key={value.title} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={value.title} className="text-center hover:shadow-lg transition-shadow flex flex-col">
                 <CardHeader className="items-center">
                   <div className="p-4 bg-primary/10 rounded-full mb-4">
                     <value.icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle className="font-headline">{value.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{value.description}</p>
                 </CardContent>
               </Card>
