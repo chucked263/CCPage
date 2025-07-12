@@ -103,17 +103,17 @@ export default function Home() {
                 <CardTitle className="font-headline">Get In Touch</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow space-y-6 text-lg">
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                  <span>123 Innovation Drive, Tech Park, Silicon Valley, CA 94000</span>
-                </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>+1 (234) 567-8900</span>
+                  <span>+263776733222</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>contact@componentscentre.com</span>
+                  <span>info@components.co.zw</span>
+                </div>
+                <div className="flex items-start gap-4">
+                  <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                  <span>Milton Park, Harare, Zimbabwe</span>
                 </div>
               </CardContent>
             </Card>
@@ -129,7 +129,7 @@ export default function Home() {
                 className="bg-white text-accent hover:bg-gray-100 shadow-lg scale-100 hover:scale-105 transition-transform duration-300 ease-in-out"
               >
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/263776733222"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat on WhatsApp"
@@ -144,7 +144,7 @@ export default function Home() {
       </main>
 
        <a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/263776733222"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
