@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Truck, Search, Handshake, Menu, X, ShieldCheck, Scale, Wrench, CheckCircle } from "lucide-react";
+import { Truck, Search, Handshake, Menu, X, ShieldCheck, Scale, Wrench, CheckCircle, Target, Rocket } from "lucide-react";
 import Logo from "@/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import Link from 'next/link';
@@ -191,6 +191,33 @@ export default function AboutPage() {
                 ))}
               </div>
             </section>
+
+            <section id="vision-mission" className="pt-12 md:pt-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardHeader className="flex flex-row items-center gap-4">
+                     <div className="p-3 bg-primary/10 rounded-full">
+                      <Target className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="font-headline">Our Vision</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">To be the most trusted and indispensable supply partner for workshops and technical industries across Zimbabwe.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-lg transition-shadow">
+                  <CardHeader className="flex flex-row items-center gap-4">
+                    <div className="p-3 bg-primary/10 rounded-full">
+                      <Rocket className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="font-headline">Our Mission</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">To guarantee operational continuity for our clients by providing a reliable, delivered supply of essential components and expert sourcing for hard-to-find parts.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </section>
         </main>
 
         <footer className="bg-card py-4 mt-12">
@@ -201,5 +228,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-    
