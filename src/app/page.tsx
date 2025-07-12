@@ -38,11 +38,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground font-body">
       <header className="py-6 px-4 md:px-8 bg-card shadow-sm">
-        <div className="container mx-auto flex items-center gap-4">
-          <Logo className="h-10 w-10" />
-          <h1 className="text-2xl font-bold tracking-tight text-primary font-headline">
-            Components Centre
-          </h1>
+        <div className="container mx-auto flex items-center">
+          <Logo className="h-12 w-auto" />
         </div>
       </header>
 
