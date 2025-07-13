@@ -49,7 +49,7 @@ export default function Home() {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle className="flex items-center justify-between">
-                  Contents
+                  Menu
                   <SheetClose asChild>
                      <Button variant="ghost" size="icon">
                         <X className="h-6 w-6" />
