@@ -12,7 +12,12 @@ const nextConfig: NextConfig = {
   // If you're using the Next.js Image component, you might need to
   // disable optimization for static export or configure a custom loader.
   images: {
-    unoptimized: true, // A common setting for static export
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
   },
   
   typescript: {
