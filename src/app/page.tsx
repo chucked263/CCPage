@@ -86,7 +86,7 @@ export default function Home() {
             <div>
               <p className="font-bold">Website Under Maintenance</p>
               <p className="text-sm">
-                Our website is currently undergoing maintenance. We
+                Our website is currently undergoing some maintenance. We
                 will be back after upgrades are complete. Thank you.
               </p>
             </div>
